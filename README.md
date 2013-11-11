@@ -1,46 +1,32 @@
-# array-jumper
+# array-next
 
-Solves an annoying problem I've run into frequently with various cases where I want to get another item in an array based on some current value that I know is in the array.
+Super tiny module that returns the `next` item in an array when given an item in the array.
+
+If you give it the last item in the array and call `next` it will loop around and give you the first.
 
 
 ## installing
 
 ```
-npm install array-jumper
+npm install array-next
 ```
 
 ## how to use
 
 ```js
-var jumper = require('array-jumper');
+var next = require('array-next');
 
 // our demo array
 var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 
+// if none specified next should return first
+next(arr); // returns 'a'
 
-// If non are specified jumper should return first
-jumper(arr); // returns 'b'
+// when given an item in the array it returns the next one
+next(arr, 'a'); // returns 'b'
 
-// If no jump amount specified jumper should return
-// next item in array
-jumper(arr, 'a') // returns 'b'
-
-// If jump amount specified is in range, jump to item
-jumper(arr, 'a', 2) // returns 'c'
-
-// Should work for negative
-jumper(arr, 'c', -2) // returns 'a'
-
-// Should work for zero
-jumper(arr, 'a', 0) // returns 'a'
-
-// Should loop around if given positive jump number that
-// is out of range.
-jumper(arr, 'a', 10) // returns 'd'
-
-// Should loop around if given negative jump number that
-// is out of range
-jumper(arr, 'a', -10) // returns 'e'
+// it also loops if you give it the last item
+next(arr, 'c'); // returns 'a'
 ```
 
 
