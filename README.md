@@ -26,7 +26,7 @@ next(arr); // returns 'a'
 next(arr, 'a'); // returns 'b'
 
 // it also loops if you give it the last item
-next(arr, 'c'); // returns 'a'
+next(arr, 'g'); // returns 'a'
 ```
 
 
